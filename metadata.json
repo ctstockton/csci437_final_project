@@ -1,0 +1,6 @@
+{
+  "title":"Space Battle",
+  "author": "Corey Stockton, Thomas Agnew",
+  "language": "python",
+  "command": "python main.py"
+}
