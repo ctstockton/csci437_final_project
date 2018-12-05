@@ -45,6 +45,9 @@ class Player(pygame.sprite.Sprite):
             if(bullet.isHidden):
                 bullet.fire(self.x, self.y, self.turretAngle)
 
+    def checkCollision(self):
+        #check the array of bullets
+
     def update(self):
         #use radians to determine where the player is
 

@@ -5,8 +5,10 @@
 #                                11/27/18                                      #
 ################################################################################
 import pygame
+from background import Background
 from planet import Planet
 from player import Player
+from bullet import bullet
 
 def main():
     pygame.init()
@@ -17,6 +19,9 @@ def main():
     background.fill((255, 255, 255))
     screen.blit(background, (0, 0))
 
+    #create a back drop image
+    backdrop = Background()
+
     #create planet and players
     planet = Planet()
 
@@ -24,6 +29,7 @@ def main():
     player2 = Player()
 
     #group sprites
+    backdropSprite = pygame.Sprite.group(backdrop)
     planetSprite = pygame.Sprite.group(planet)
     playerSprites = pygame.Sprite.group(player1,player2)
 
@@ -36,10 +42,12 @@ def main():
                 keepGoing = False
                 
         #update sprites
+        backdropSprite.update()
         planetSprite.update()
         playerSprites.update()
 
         #draw sprites
+        backdropSprite.draw(screen)
         planetSprite.draw(screen)
         playerSprites.draw(screen)
 
