@@ -2,6 +2,7 @@
 import pygame
 import random
 import math
+from bullet import bullet
 
 PLAYER_IMAGE = "images/"
 PLAYER_WIDTH = 256
@@ -17,15 +18,37 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.x = 10
         self.y = 10
+        self.angle = 0
+        self.turretAngle = self.angle + 90
         self.center()
+        self.bullets[5] = new Bullet()
 
         self.CWspeed = 0
         self.startRad = 0
-        self.maxRad = 1 #change this later
-        self.
 
     def spawn(self):
+        #generate a place on the planet
         spawnRad = random.randrange(0, 2*PI, .01)
+        #use the spawn radian for angle on the planet
+
+        #use angle to set x and y position
+
+        #use angle to set angle of sprite
+
+        #use angle of sprite to set angle of turret
+
+
+    def fire(self):
+        #checks array of bullets to find a hidden bullet
+        for bullet in bullets:
+            #fires a hidden bullet
+            if(bullet.isHidden):
+                bullet.fire(self.x, self.y, self.turretAngle)
 
     def update(self):
+        #use radians to determine where the player is
+
+        #use radians to determine the player's angle
+
+        #use player's angle to set the angle of the turret
         self.rect.center = (self.x, self.y)
