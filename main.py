@@ -8,11 +8,11 @@ import pygame
 from background import Background
 from planet import Planet
 from player import Player
-from bullet import bullet
+from bullets import Bullets
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((1920,1080))
+    screen = pygame.display.set_mode((1600,900))
     pygame.display.set_caption("Space Battle")
     background = pygame.Surface(screen.get_size())
     background = background.convert()
@@ -25,16 +25,18 @@ def main():
     #create planet and players
     planet = Planet()
 
-    p1Bullets[5] = Bullet()
-    p2Bullets[5] = Bullet()
+    #p1Bullets = Bullets()
+    #p2Bullets = Bullets()
 
-    player1 = Player(p1Bullets)
-    player2 = Player(p2Bullets)
+    player1 = Player()
+    #player2 = Player(p2Bullets)
+
+    player1.spawn()
 
     #group sprites
-    backdropSprite = pygame.Sprite.group(backdrop)
-    planetSprite = pygame.Sprite.group(planet)
-    playerSprites = pygame.Sprite.group(player1,player2)
+    backdropSprite = pygame.sprite.Group(backdrop)
+    planetSprite = pygame.sprite.Group(planet)
+    playerSprites = pygame.sprite.Group(player1) #,player2
 
     clock = pygame.time.Clock()
     keepGoing = True
@@ -43,7 +45,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 keepGoing = False
-                
+
         #update sprites
         backdropSprite.update()
         planetSprite.update()
@@ -53,6 +55,8 @@ def main():
         backdropSprite.draw(screen)
         planetSprite.draw(screen)
         playerSprites.draw(screen)
+
+        pygame.display.flip()
 
 if __name__ == "__main__":
     main()

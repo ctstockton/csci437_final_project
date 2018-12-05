@@ -2,8 +2,8 @@
 import pygame
 
 BACKGROUND_IMAGE = "images/background.jpg"
-BACKGROUND_WIDTH = 1920
-BACKGROUND_HEIGHT = 1080
+BACKGROUND_WIDTH = 1600
+BACKGROUND_HEIGHT = 900
 
 class Background(pygame.sprite.Sprite):
     def __init__(self):
