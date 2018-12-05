@@ -9,7 +9,7 @@ PLAYER_WIDTH = 256
 PLAYER_HEIGHT = 256
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, bullets):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(PLAYER_IMAGE)
         self.image = self.image.convert_alpha()
@@ -21,15 +21,16 @@ class Player(pygame.sprite.Sprite):
         self.angle = 0
         self.turretAngle = self.angle + 90
         self.center()
-        self.bullets[5] = new Bullet()
+        self.bullets[5] = bullets
 
         self.CWspeed = 0
         self.startRad = 0
+        self.planet_position_angle_deg = 0
 
     def spawn(self):
         #generate a place on the planet
-        spawnRad = random.randrange(0, 2*PI, .01)
-        #use the spawn radian for angle on the planet
+        spawnDeg = random.random()*360
+        #use the spawn degrees for angle on the planet
 
         #use angle to set x and y position
 
@@ -47,6 +48,8 @@ class Player(pygame.sprite.Sprite):
 
     def checkCollision(self):
         #check the array of bullets
+
+    def
 
     def update(self):
         #use radians to determine where the player is

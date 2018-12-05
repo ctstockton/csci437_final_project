@@ -25,8 +25,11 @@ def main():
     #create planet and players
     planet = Planet()
 
-    player1 = Player()
-    player2 = Player()
+    p1Bullets[5] = Bullet()
+    p2Bullets[5] = Bullet()
+
+    player1 = Player(p1Bullets)
+    player2 = Player(p2Bullets)
 
     #group sprites
     backdropSprite = pygame.Sprite.group(backdrop)
