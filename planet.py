@@ -16,7 +16,7 @@ class Planet(pygame.sprite.Sprite):
         self.center()
 
     def center(self):
-        self.rect.center = (self.width/2, self.height/2)
+        self.rect.center = (860, 540)
 
     def update(self):
         self.center()
